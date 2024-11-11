@@ -41,7 +41,7 @@ function PDFPreview({ rows, onClose }) {
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-4 rounded max-w-2xl w-full">
         <div ref={pdfRef}>
-          <h2 className="text-lg font-bold mb-4">PDF-ის წინასწარი ნახვა</h2>
+          {/* <h2 className="text-lg font-bold mb-4">PDF-ის წინასწარი ნახვა</h2> */}
           <table className="min-w-full border border-gray-300 mb-4">
             <thead>
               <tr>
