@@ -70,7 +70,7 @@ function PDFPreview({ rows, onClose }) {
           </table>
         </div>
         <div className="flex justify-end space-x-4 mt-4">
-          <button onClick={() => generatePDF(false)} className="bg-blue-500 text-white py-2 px-4 rounded">PDF გადაკეთება</button>
+          <button onClick={() => generatePDF(false)} className="bg-blue-500 text-white py-2 px-4 rounded">PDF შენახვა</button>
           <button onClick={() => generatePDF(true)} className="bg-green-500 text-white py-2 px-4 rounded">PDF გაზიარება</button>
           <button onClick={onClose} className="bg-red-500 text-white py-2 px-4 rounded">დახურვა</button>
         </div>

@@ -39,79 +39,84 @@ const EditableTable = ({ rows, setRows }) => {
   return (
     <div className="p-4">
       <h2 className="text-lg font-bold mb-4">პროდუქციის მართვა</h2>
-      <table className="min-w-full border border-gray-300">
-        <thead>
-          <tr>
-            <th className="border p-2">სახელი</th>
-            <th className="border p-2">საყიდელი ფასი</th>
-            <th className="border p-2">რაოდენობა</th>
-            <th className="border p-2">% გასაყიდი</th>
-            <th className="border p-2">გასაყიდი ფასი</th>
-            <th className="border p-2">ჯამური ფასი</th>
-            <th className="border p-2">ქმედება</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index}>
-              <td className="border p-2">
-                <input
-                  type="text"
-                  name="name"
-                  value={row.name}
-                  onChange={(e) => handleInputChange(index, e)}
-                  className="w-full border p-1"
-                />
-              </td>
-              <td className="border p-2">
-                <input
-                  type="number"
-                  name="price"
-                  value={row.price}
-                  onChange={(e) => handleInputChange(index, e)}
-                  className="w-full border p-1"
-                />
-              </td>
-              <td className="border p-2">
-                <input
-                  type="number"
-                  name="quantity"
-                  value={row.quantity}
-                  onChange={(e) => handleInputChange(index, e)}
-                  className="w-full border p-1"
-                />
-              </td>
-              <td className="border p-2">
-                <input
-                  type="number"
-                  name="markup"
-                  value={row.markup}
-                  onChange={(e) => handleInputChange(index, e)}
-                  className="w-full border p-1"
-                />
-              </td>
-              <td className="border p-2">
-                <input
-                  type="number"
-                  name="sellPrice"
-                  value={row.sellPrice}
-                  onChange={(e) => handleInputChange(index, e)}
-                  className="w-full border p-1"
-                />
-              </td>
-              <td className="border p-2 text-center">{row.totalPrice}</td>
-              <td className="border p-2 text-center">
-                <button
-                  onClick={() => handleDeleteRow(index)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
-                >
-                  წაშლა
-                </button>
-              </td>
+
+      {/* ცხრილის კონტეინერი ჰორიზონტალური სქროლით */}
+      <div className="overflow-x-auto max-w-full">
+        <table className="w-full border border-gray-300 whitespace-nowrap">
+          <thead>
+            <tr>
+              <th className="border p-2">სახელი</th>
+              <th className="border p-2">საყიდელი ფასი</th>
+              <th className="border p-2">რაოდენობა</th>
+              <th className="border p-2">% გასაყიდი</th>
+              <th className="border p-2">გასაყიდი ფასი</th>
+              <th className="border p-2">ჯამური ფასი</th>
+              <th className="border p-2">ქმედება</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={index}>
+                <td className="border p-2">
+                  <input
+                    type="text"
+                    name="name"
+                    value={row.name}
+                    onChange={(e) => handleInputChange(index, e)}
+                    className="w-full border p-1"
+                  />
+                </td>
+                <td className="border p-2">
+                  <input
+                    type="number"
+                    name="price"
+                    value={row.price}
+                    onChange={(e) => handleInputChange(index, e)}
+                    className="w-full border p-1"
+                  />
+                </td>
+                <td className="border p-2">
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={row.quantity}
+                    onChange={(e) => handleInputChange(index, e)}
+                    className="w-full border p-1"
+                  />
+                </td>
+                <td className="border p-2">
+                  <input
+                    type="number"
+                    name="markup"
+                    value={row.markup}
+                    onChange={(e) => handleInputChange(index, e)}
+                    className="w-full border p-1"
+                  />
+                </td>
+                <td className="border p-2">
+                  <input
+                    type="number"
+                    name="sellPrice"
+                    value={row.sellPrice}
+                    onChange={(e) => handleInputChange(index, e)}
+                    className="w-full border p-1"
+                  />
+                </td>
+                <td className="border p-2 text-center">{row.totalPrice}</td>
+                <td className="border p-2 text-center">
+                  <button
+                    onClick={() => handleDeleteRow(index)}
+                    className="bg-red-500 text-white px-2 py-1 rounded"
+                  >
+                    წაშლა
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       <div className="mt-4">
         <p>საყიდელი ფასების ჯამი: {totalBuyPrice.toFixed(2)}</p>
         <p>გასაყიდი ფასების ჯამი: {totalSellPrice.toFixed(2)}</p>
